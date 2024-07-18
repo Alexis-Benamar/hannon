@@ -1,5 +1,5 @@
+import { useQueryClient } from '@tanstack/react-query'
 import usePlaylist from 'hooks/usePlaylist'
-import { useQueryClient } from 'react-query'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Playlist } from 'types/playlist'
 

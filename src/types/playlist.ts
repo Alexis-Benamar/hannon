@@ -1,3 +1,15 @@
+export type PlaylistResponse = {
+  kind: 'youtube#playlistListResponse'
+  etag: string
+  nextPageToken: string
+  prevPageToken: string
+  pageInfo: {
+    totalResults: number
+    resultsPerPage: number
+  }
+  items: Playlist[]
+}
+
 export type Playlist = {
   kind: 'youtube#playlist'
   etag: string
@@ -37,6 +49,18 @@ export type Thumbnail = {
   url: string
   width: number
   height: number
+}
+
+export type PlaylistItemReponse = {
+  kind: 'youtube#playlistItemListResponse'
+  etag: string
+  nextPageToken?: string
+  prevPageToken?: string
+  pageInfo: {
+    totalResults: number
+    resultsPerPage: number
+  }
+  items: PlaylistItem[]
 }
 
 export type PlaylistItem = {
