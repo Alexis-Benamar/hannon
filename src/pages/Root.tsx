@@ -4,12 +4,15 @@ import blobBoat from 'assets/blob-boat.png'
 import { AuthContext } from 'context/Auth'
 import { Outlet, useNavigate } from 'react-router-dom'
 
+import Footer from 'components/Footer'
+
 const Root = () => {
   const { credentials, logout } = useContext(AuthContext)
   const navigate = useNavigate()
 
   return (
     <>
+      {/* TODO: refacto as header component */}
       <nav style={{ alignItems: 'center', justifyContent: 'space-between', paddingBlock: '1.5rem' }}>
         <p
           className="flex center larger bold pointer"
@@ -27,6 +30,7 @@ const Root = () => {
       <Suspense fallback={'Loading...'}>
         <Outlet />
       </Suspense>
+      <Footer />
     </>
   )
 }

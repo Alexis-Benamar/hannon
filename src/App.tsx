@@ -4,6 +4,7 @@ import { AuthProvider } from 'context/Auth'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import ProtectedRoute from 'components/ProtectedRoute'
+import About from 'pages/About'
 import Home from 'pages/Home'
 import Login from 'pages/Login'
 import NotFound from 'pages/NotFound'
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
           { path: '/playlist/:id', element: <Playlist /> },
         ],
       },
+      { path: '/about', element: <About /> },
       { path: '/login', element: <Login /> },
     ],
   },
