@@ -60,6 +60,7 @@ const About = () => {
             </span>
           </li>
           <li>
+            (todo)
             <a href="https://tanstack.com/virtual/latest" target="_blank">
               TanStack Virtual
             </a>{' '}
@@ -67,6 +68,7 @@ const About = () => {
             <span className="muted">(only render those close to the current scrollview)</span>
           </li>
           <li>
+            (todo)
             <a href="https://tanstack.com/table/latest" target="_blank">
               TanStack Table
             </a>{' '}
