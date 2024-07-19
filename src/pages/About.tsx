@@ -45,8 +45,11 @@ const About = () => {
       <section>
         <h3>Behold, my liege, thy mighty charriot</h3>
         <p>
-          This website is really simple: you log in with your youtube account, it fetches your playlists, and if you
-          click one of them it fetches the videos within.
+          <a href="https://fr.wikipedia.org/wiki/Hannon_le_Navigateur" target="_blank">
+            Hannon
+          </a>{' '}
+          is really simple: you log in with your youtube account, it fetches your playlists, and if you click one of
+          them it fetches the videos within.
         </p>
         <p>It's a React app made with Vite, and uses really cool libraries that speeds things up:</p>
         <ul>
