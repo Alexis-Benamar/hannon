@@ -27,7 +27,7 @@ const PlaylistView = () => {
         {playlistInfo?.snippet.title}
       </h2>
       {!playlistItems || playlistItems.length === 0 ? null : (
-        <ul>
+        <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
           {playlistItems?.map((playlistItem) => (
             <PlaylistItem
               key={playlistItem.id}

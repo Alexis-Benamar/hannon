@@ -18,7 +18,7 @@ const Playlists = () => {
   return !orderedPlaylists || orderedPlaylists.length === 0 ? null : (
     <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
       {orderedPlaylists.map((playlist) => (
-        <Card onClick={() => navigate(`/playlist/${playlist.id}`)}>
+        <Card key={playlist.id} onClick={() => navigate(`/playlist/${playlist.id}`)}>
           <em>{playlist.snippet.title}</em> -{' '}
           <small>
             <b>{playlist.contentDetails.itemCount}</b> vid{playlist.contentDetails.itemCount > 1 ? 's' : ''}
