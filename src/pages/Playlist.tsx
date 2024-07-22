@@ -3,6 +3,8 @@ import usePlaylist from 'hooks/usePlaylist'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Playlist } from 'types/playlist'
 
+import PlaylistItem from 'components/PlaylistItem'
+
 const PlaylistView = () => {
   const { id: playlistId } = useParams<{ id: string }>()
   const navigate = useNavigate()
@@ -25,7 +27,15 @@ const PlaylistView = () => {
         {playlistInfo?.snippet.title}
       </h2>
       {!playlistItems || playlistItems.length === 0 ? null : (
-        <ul>{playlistItems?.map((playlistItem) => <li key={playlistItem.id}>{playlistItem.snippet.title}</li>)}</ul>
+        <ul>
+          {playlistItems?.map((playlistItem) => (
+            <PlaylistItem
+              key={playlistItem.id}
+              channelId={playlistInfo?.snippet.channelId ?? ''}
+              playlistItem={playlistItem}
+            />
+          ))}
+        </ul>
       )}
     </>
   )

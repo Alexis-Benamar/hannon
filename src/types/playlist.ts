@@ -60,10 +60,10 @@ export type PlaylistItemReponse = {
     totalResults: number
     resultsPerPage: number
   }
-  items: PlaylistItem[]
+  items: PlaylistItemType[]
 }
 
-export type PlaylistItem = {
+export type PlaylistItemType = {
   kind: 'youtube#playlistItem'
   etag: string
   id: string

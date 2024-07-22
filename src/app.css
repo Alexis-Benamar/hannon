@@ -11,3 +11,28 @@ body, #root {
   display: flex;
   flex-direction: column;
 }
+
+.card-container {
+  cursor: pointer;
+  padding-block: 0.5rem;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &:hover {
+    > div {
+      background-color: hsl(from var(--bg-muted) h s calc(l - 5));
+    }
+  }
+}
+
+.card-content {
+  background-color: var(--bg-muted);
+  border-radius: var(--bd-radius);
+  padding: 1rem;
+}

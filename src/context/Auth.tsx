@@ -17,7 +17,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = useGoogleLogin({
     scope: ['openid', 'https://www.googleapis.com/auth/youtube'].join(' '),
     onSuccess: (response) => setCredentials(response),
-    onError: (error) => console.log('Error when logging in :', error),
+    onError: (error) => console.error('Error when logging in :', error),
   })
 
   const logout = useCallback(() => {
