@@ -51,31 +51,20 @@ const About = () => {
           is really simple: you log in with your youtube account, it fetches your playlists, and if you click one of
           them it fetches the videos within.
         </p>
-        <p>It's a React app made with Vite, and uses really cool libraries that speeds things up:</p>
+        <p>It's a React app made with Vite, and makes use of really cool tricks:</p>
         <ul>
           <li>
             <a href="https://tanstack.com/query/latest" target="_blank">
               TanStack Query
             </a>{' '}
-            - data caching{' '}
+            - JS library for data caching{' '}
+            <span className="muted">(so we don't have to reload a huge playlist everytime)</span>
+          </li>
+          <li>
+            <em>everything</em> is rendered - but not all is shown{' '}
             <span className="muted">
-              (so we don't have to make 26 consecutive calls everytime you load a huge playlist)
+              (hiding elements with css <code>visibility</code> is cheaper than adding/removing them from the DOM)
             </span>
-          </li>
-          <li>
-            (todo)
-            <a href="https://tanstack.com/virtual/latest" target="_blank">
-              TanStack Virtual
-            </a>{' '}
-            - virtualize playlist items{' '}
-            <span className="muted">(only render those close to the current scrollview)</span>
-          </li>
-          <li>
-            (todo)
-            <a href="https://tanstack.com/table/latest" target="_blank">
-              TanStack Table
-            </a>{' '}
-            - display, sort, search and filter
           </li>
         </ul>
       </section>

@@ -1,12 +1,8 @@
 import { HTMLAttributes } from 'react'
 
-interface CardProps {
-  disabled?: boolean
-}
-
-const Card = ({ children, disabled, ...props }: CardProps & HTMLAttributes<HTMLLIElement>) => {
+const Card = ({ children, ...props }: HTMLAttributes<HTMLLIElement>) => {
   return (
-    <li className={`card-container${disabled ? ' disabled' : ''}`} {...props}>
+    <li className={`card-container`} {...props}>
       <div className="card-content">{children}</div>
     </li>
   )

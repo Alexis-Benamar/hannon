@@ -94,3 +94,5 @@ export type PlaylistItemType = {
     privacyStatus: string
   }
 }
+
+export type PlaylistSortType = 'default' | 'firstAdded' | 'title'

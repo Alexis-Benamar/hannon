@@ -1,28 +1,27 @@
+import { memo } from 'react'
+
 import { PlaylistItemType } from 'types/playlist'
 
-import Card from './Card'
 import CardLink from './CardLink'
 
 interface PlaylistItemProps {
   channelId: string
   playlistItem: PlaylistItemType
+  shouldDisplay?: boolean
 }
 
-const PlaylistItem = ({ channelId, playlistItem }: PlaylistItemProps) => {
-  const shouldBeMuted =
+const PlaylistItem = memo(function ({ channelId, playlistItem, shouldDisplay = true }: PlaylistItemProps) {
+  const isNotAvailable =
     !['public', 'unlisted'].includes(playlistItem.status.privacyStatus) &&
     channelId !== playlistItem.snippet.videoOwnerChannelId
 
-  if (shouldBeMuted) {
-    return (
-      <Card disabled>
-        <i className="muted small">{playlistItem.snippet.title}</i>
-      </Card>
-    )
-  }
+  if (isNotAvailable) return null
 
   return (
-    <CardLink href={`https://www.youtube.com/watch?v=${playlistItem.snippet.resourceId.videoId}`}>
+    <CardLink
+      href={`https://www.youtube.com/watch?v=${playlistItem.snippet.resourceId.videoId}`}
+      hidden={!shouldDisplay}
+    >
       <div style={{ flexShrink: 0, width: 100, aspectRatio: '16 / 9' }}>
         <img
           loading="lazy"
@@ -38,6 +37,6 @@ const PlaylistItem = ({ channelId, playlistItem }: PlaylistItemProps) => {
       </div>
     </CardLink>
   )
-}
+})
 
 export default PlaylistItem
