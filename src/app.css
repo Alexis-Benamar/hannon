@@ -56,3 +56,28 @@ body, #root {
     }
   }
 }
+
+.scroll-to-top {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 25px;
+  border: 1px solid var(--bd-muted);
+  background-color: var(--bg-default);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s ease;
+
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: var(--accent);
+    background-color: var(--accent);
+  }
+}

@@ -4,6 +4,7 @@ import usePlaylist from 'hooks/usePlaylist'
 import { PlaylistSortType } from 'types/playlist'
 
 import PlaylistItem from './PlaylistItem'
+import ScrollToTop from './ScrollToTop'
 
 interface VideosProps {
   playlistId: string
@@ -69,6 +70,7 @@ const Videos = ({ playlistId, ownChannelId }: VideosProps) => {
               />
             )
           })}
+          <ScrollToTop />
         </ul>
       )}
     </>
