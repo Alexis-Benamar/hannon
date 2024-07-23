@@ -1,7 +1,10 @@
+import { Suspense } from 'react'
+
 import { useQueryClient } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import { Playlist } from 'types/playlist'
 
+import Loading from 'components/Loading'
 import PlaylistTitle from 'components/PlaylistTitle'
 import Videos from 'components/Videos'
 
@@ -16,8 +19,9 @@ const PlaylistView = () => {
   return (
     <>
       <PlaylistTitle title={playlistTitle} />
-      {/* TODO: wrap Videos inside Suspense */}
-      <Videos playlistId={playlistId ?? ''} ownChannelId={playlistInfo?.snippet.channelId ?? ''} />
+      <Suspense fallback={<Loading />}>
+        <Videos playlistId={playlistId ?? ''} ownChannelId={playlistInfo?.snippet.channelId ?? ''} />
+      </Suspense>
     </>
   )
 }
