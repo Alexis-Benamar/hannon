@@ -1,17 +1,16 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
+
+import { Navigate } from 'react-router-dom'
 
 import { AuthContext } from 'context/Auth'
-import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
-  const { credentials, login } = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { getCredentials, login } = useContext(AuthContext)
+  const accessToken = getCredentials()
 
-  useEffect(() => {
-    if (credentials) {
-      navigate('/')
-    }
-  }, [credentials, navigate])
+  if (accessToken) {
+    return <Navigate to="/" />
+  }
 
   return (
     <div>

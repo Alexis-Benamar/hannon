@@ -1,9 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { AuthProvider } from 'context/Auth'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import ProtectedRoute from 'components/ProtectedRoute'
+import { AuthProvider } from 'context/Auth'
 import About from 'pages/About'
 import Home from 'pages/Home'
 import Login from 'pages/Login'
@@ -14,6 +14,7 @@ import Root from 'pages/Root'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      retry: false,
       staleTime: 60000,
     },
   },

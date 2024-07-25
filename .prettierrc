@@ -7,7 +7,7 @@
   "importOrder": [
     "^react$",
     "<THIRD_PARTY_MODULES>",
-    "^(components|pages)?/(.*)$",
+    "^(api|components|context|hooks|pages|types|util)?/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,

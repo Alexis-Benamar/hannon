@@ -1,13 +1,15 @@
-import { AuthResponse } from 'types/auth'
+import Cookies from 'js-cookie'
+
 import { PlaylistItemReponse, PlaylistItemType, PlaylistResponse } from 'types/playlist'
 import { delay } from 'util/helpers'
 
-export const getPlaylists = async (credentials: AuthResponse | null) => {
+export const getPlaylists = async () => {
+  const accessToken = Cookies.get('hannon-auth')
   const response = await fetch(
     'https://www.googleapis.com/youtube/v3/playlists?part=snippet,contentDetails&mine=true&maxResults=50',
     {
       headers: {
-        Authorization: `Bearer ${credentials?.access_token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     },
   )
@@ -15,7 +17,8 @@ export const getPlaylists = async (credentials: AuthResponse | null) => {
   return dataAsJSON.items
 }
 
-export const getPlaylistItems = async (playlistId: string, credentials: AuthResponse | null) => {
+export const getPlaylistItems = async (playlistId: string) => {
+  const accessToken = Cookies.get('hannon-auth')
   let fetchNext = true
   let pageToken = ''
   const playlistItems: PlaylistItemType[] = []
@@ -26,7 +29,7 @@ export const getPlaylistItems = async (playlistId: string, credentials: AuthResp
       `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,status&maxResults=50&pageToken=${pageToken}&playlistId=${playlistId}`,
       {
         headers: {
-          Authorization: `Bearer ${credentials?.access_token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     )

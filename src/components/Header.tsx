@@ -1,12 +1,19 @@
 import { useContext } from 'react'
 
 import blobBoat from 'assets/blob-boat.png'
-import { AuthContext } from 'context/Auth'
 import { useNavigate } from 'react-router-dom'
 
+import { AuthContext } from 'context/Auth'
+
 const Header = () => {
-  const { credentials, logout } = useContext(AuthContext)
+  const { getCredentials, logout } = useContext(AuthContext)
+  const accessToken = getCredentials()
   const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+  }
 
   return (
     <nav style={{ alignItems: 'center', justifyContent: 'space-between', paddingBlock: '1.5rem' }}>
@@ -17,8 +24,8 @@ const Header = () => {
       >
         Hannon <img src={blobBoat} width={48} height={48} style={{ display: 'inline-block', marginLeft: 10 }} />
       </p>
-      {credentials ? (
-        <button className="normal" style={{ margin: 0 }} onClick={() => logout()}>
+      {accessToken ? (
+        <button className="normal" style={{ margin: 0 }} onClick={handleLogout}>
           Logout
         </button>
       ) : null}
